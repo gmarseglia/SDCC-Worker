@@ -27,7 +27,7 @@ var (
 func setupFields() {
 	// Setup WorkerPort
 	utils.SetupFieldOptional(worker.HostAddr, "HostAddr", utils.GetOutboundIP().String())
-	utils.SetupFieldOptional(worker.HostPort, "HostPort", "0")
+	utils.SetupFieldOptional(worker.HostPort, "HostPort", "55557")
 	utils.SetupFieldMandatory(worker.MasterAddr, "MasterAddr", func() {
 		log.Printf("[Main]: MasterAddr is a mandatory field.")
 		exit()
