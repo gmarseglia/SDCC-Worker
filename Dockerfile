@@ -1,6 +1,6 @@
 FROM golang:1.21.6
 
-WORKDIR /go/src/client
+WORKDIR /go/src/worker
 
 COPY /worker .
 
