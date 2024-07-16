@@ -24,6 +24,7 @@ var (
 	MasterFullAddr string
 	conn           *grpc.ClientConn
 	c              pb.MasterClient
+	PingTimeout    = time.Minute * 3
 )
 
 func dialServerAndSetClient() error {
@@ -61,7 +62,7 @@ func NotifyWorkerActive(portChan chan string) error {
 	log.Printf("[Worker]: Address to be advertised to master: %s\n", HostFullAddr)
 
 	// create the context
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second*60)
+	ctx, cancel := context.WithTimeout(context.Background(), PingTimeout)
 	defer cancel()
 
 	pingRequest := &pb.PingRequest{
